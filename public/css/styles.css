@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(31, 82, 82);
+    color: #fff;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+.name {
+    width: 200px;
+}
+
+.rating {
+    width: 200px;
+}

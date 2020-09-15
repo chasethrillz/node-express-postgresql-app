@@ -1,0 +1,11 @@
+<h1>${title}</h1>
+<table>
+    <tr>
+        <th>Language</th>
+        <th>Rating</th>
+    </tr>
+    ${data.map(language => `<tr>
+        <td class="name">${language.name}</td>
+        <td class="rating">${language.rating}</td>
+    </tr>`).join('')}
+</table>
