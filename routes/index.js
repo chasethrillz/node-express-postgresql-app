@@ -18,4 +18,11 @@ router.get('/', async (req, res) => {
     });
 });
 
+router.post('/', async (req, res) => {
+    console.log(req.body);
+    const dbResponse = await indexModel.updateStatus(6, "HTML");
+    console.log("DB response:", dbResponse);
+    res.status(200).send("OK").end();
+})
+
 module.exports = router;

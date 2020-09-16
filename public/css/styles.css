@@ -2,6 +2,7 @@ body {
     background-color: rgb(31, 82, 82);
     color: #fff;
     box-sizing: border-box;
+    margin: 20px 0 0 20px;
 }
 
 li {
@@ -14,4 +15,39 @@ li {
 
 .rating {
     width: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+button {
+    width: 100px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: #fff solid 1px;
+}
+
+button:focus {
+    outline: none;
+}
+
+select {
+    padding: 3px;
+    border-radius: 5px;
+}
+
+select:focus {
+    outline: none;
 }
