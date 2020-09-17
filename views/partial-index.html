@@ -1,80 +1,23 @@
 <h1>${title}</h1>
 <form action="/" method="POST">
-
-    <label>HTML
-        <select name="HTML">
-            <option value="1">Awesome</option>
-            <option value="2">Great</option>
-            <option value="3">Good</option>
-            <option value="4">Okay</option>
-            <option value="5">Poor</option>
-            <option value="6">Unranked</option>
-        </select>
-    </label>
-
-    <label>CSS
-        <select name="CSS">
-            <option value="1">Awesome</option>
-            <option value="2">Great</option>
-            <option value="3">Good</option>
-            <option value="4">Okay</option>
-            <option value="5">Poor</option>
-            <option value="6">Unranked</option>
-        </select>
-    </label>
-
-    <label>Javascript
-        <select name="Javascript">
-            <option value="1">Awesome</option>
-            <option value="2">Great</option>
-            <option value="3">Good</option>
-            <option value="4">Okay</option>
-            <option value="5">Poor</option>
-            <option value="6">Unranked</option>
-        </select>
-    </label>
-
-    <label>PostgreSQL
-        <select name="PostgreSQL">
-            <option value="1">Awesome</option>
-            <option value="2">Great</option>
-            <option value="3">Good</option>
-            <option value="4">Okay</option>
-            <option value="5">Poor</option>
-            <option value="6">Unranked</option>
-        </select>
-    </label>
-
-    <label>Node
-        <select name="Node">
-            <option value="1">Awesome</option>
-            <option value="2">Great</option>
-            <option value="3">Good</option>
-            <option value="4">Okay</option>
-            <option value="5">Poor</option>
-            <option value="6">Unranked</option>
-        </select>
-    </label>
-
-    <label>Express
-        <select name="Express">
-            <option value="1">Awesome</option>
-            <option value="2">Great</option>
-            <option value="3">Good</option>
-            <option value="4">Okay</option>
-            <option value="5">Poor</option>
-            <option value="6">Unranked</option>
-        </select>
-    </label>
-
-
-
-    <button type="submit">Submit Data</button>
     <ul>
-
-
+        ${languageData.map(language => {
+        return `
+        <li class="name">
+            I am ${language.rating} with
+            <label>
+                ${language.name}
+                <select name="${language.name}">
+                    <option value="1">Awesome</option>
+                    <option value="2">Great</option>
+                    <option value="3">Good</option>
+                    <option value="4">Okay</option>
+                    <option value="5">Poor</option>
+                    <option value="6">Unranked</option>
+                </select>
+            </label>
+        </li>`
+        }).join('')}
     </ul>
-    ${data.map(language => `
-    <li class="name">With ${language.name} I am ${language.rating}</li>`).join('')}
-    </ul>
+    <button type="submit">Upate Rankings</button>
 </form>

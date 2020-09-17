@@ -4,25 +4,29 @@ const express = require('express');
 const router = express.Router();
 const indexModel = require('../models/indexModel');
 
-router.get('/', async (req, res) => {
+const renderPage = async res => {
     const languageData = await indexModel.getAll();
 
     res.render('template', {
         locals: {
             title: 'Language Rating',
-            data: languageData
+            languageData: languageData
         },
         partials: {
             partial: 'partial-index'
         }
     });
+}
+
+router.get('/', async (req, res) => {
+    renderPage(res);
 });
 
 router.post('/', async (req, res) => {
-    console.log(req.body);
-    const dbResponse = await indexModel.updateStatus(6, "HTML");
-    console.log("DB response:", dbResponse);
-    res.status(200).send("OK").end();
+    for (let key in req.body) {
+        await indexModel.updateStatus(req.body[key], key);
+    }
+    renderPage(res);
 })
 
 module.exports = router;
