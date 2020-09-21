@@ -8,12 +8,8 @@
             <label>
                 ${language.name}
                 <select name="${language.name}">
-                    <option value="1">Awesome</option>
-                    <option value="2">Great</option>
-                    <option value="3">Good</option>
-                    <option value="4">Okay</option>
-                    <option value="5">Poor</option>
-                    <option value="6">Unranked</option>
+                    ${ratingData.map(rating => `<option value="${rating.id}" ${language.rating_id===rating.id
+                        ? 'selected' : '' }>${rating.rating}</option>`).join('')}
                 </select>
             </label>
         </li>`

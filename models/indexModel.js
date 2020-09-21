@@ -17,6 +17,16 @@ class LanguageRatings {
         }
     }
 
+    static async getRatingNames() {
+        try {
+            const response = await db.any(`SELECT * FROM ratings;`);
+            return response;
+        } catch (error) {
+            console.error("ERROR: ", error);
+            return error;
+        }
+    }
+
     static async updateStatus(rank_id, topic) {
         try {
             const response = await db.result(`UPDATE languages SET rating_id = $1 WHERE name = $2;`,
